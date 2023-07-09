@@ -56,18 +56,33 @@ def check_laravel_directory():
             shutil.rmtree('./laravel')
 
 def run_commands():
-    commands = [
-        "docker-compose build app",
-        "mkdir laravel",
-        "docker-compose up -d",
-        "docker-compose exec app composer create-project --prefer-dist laravel/laravel .",
-        "rm ./laravel/.env",
-        "cp .env ./laravel/",
-        "docker-compose exec app composer require open-admin-org/open-admin",
-        "docker-compose exec app php artisan vendor:publish --provider=\"OpenAdmin\Admin\AdminServiceProvider\"",
-        "docker-compose exec app php artisan admin:install",
-        "docker-compose exec app php artisan key:generate",
-    ]
+    if sys.platform == "win32":
+        commands = [
+            'docker-compose build app',
+            'mkdir laravel',
+            'docker-compose up -d',
+            'docker-compose exec app composer create-project --prefer-dist laravel/laravel .',
+            'del .\\laravel\\.env',
+            'copy .env .\\laravel\\',
+            'docker-compose exec app composer require open-admin-org/open-admin',
+            'docker-compose exec app php artisan vendor:publish --provider="OpenAdmin\\Admin\\AdminServiceProvider"',
+            'docker-compose exec app php artisan admin:install',
+            'docker-compose exec app php artisan key:generate'
+        ]
+    else:
+        commands = [
+            'docker-compose build app',
+            'mkdir laravel',
+            'docker-compose up -d',
+            'docker-compose exec app composer create-project --prefer-dist laravel/laravel .',
+            'rm ./laravel/.env',
+            'cp .env ./laravel/',
+            'docker-compose exec app composer require open-admin-org/open-admin',
+            'docker-compose exec app php artisan vendor:publish --provider="OpenAdmin\\Admin\\AdminServiceProvider"',
+            'docker-compose exec app php artisan admin:install',
+            'docker-compose exec app php artisan key:generate'
+        ]
+        
     for command in commands:
         print(f"Running command: {command}")
         p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
