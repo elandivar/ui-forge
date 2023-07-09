@@ -30,6 +30,12 @@ For more detailed information, consider exploring the following resources:
 
 - [Docker Compose Documentation](https://docs.docker.com/compose/)
 
+## To-do
+
+In install.py, check if the docker cointainers are already running.
+In install.py, change the project name inside the OpenAdmin GUI.
+Create a service administrator, in order to stop and restart UI-Forge containers.
+
 ## Contributions
 
 Contributions, issues, and feature requests are welcome. Feel free to check issues page if you want to contribute.
