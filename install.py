@@ -44,6 +44,15 @@ def replace_macros_in_env_file(db_name, db_user, db_pass):
     with open(".env", "w") as file:
         file.write(file_data)
 
+# This function updates the config files for OpenAdmin. It reads the config/admin.php and 
+# changes the values of the expression with the sintax "'variable' => 'value'"
+def replace_openadmin_config(project_name):
+    print("Updating OpenAdmin config files")
+    with open("./laravel/config/admin.php", "w") as file:
+        file_data = file.read()
+        file_data = file_data.replace("'name' => 'Open Admin',", "'name' => '" + project_name+ "',")
+        file.write(file_data)
+
 def check_laravel_directory():
     if os.path.isdir("./laravel"):
         print("Warning: Deleting the 'laravel' directory could result in data loss. Please make sure you have a backup before proceeding.")
@@ -106,10 +115,12 @@ def run_commands():
 def main():
     check_docker_installed()
     check_files_exist()
+    project_name = get_input("Project name", "", required=True, length_limit=32)
     db_name = get_input("database name", "uiforge")
     db_user = get_input("database user name", "uiforge")
     db_pass = get_input("database user password", "", required=True, length_limit=None)
     replace_macros_in_env_file(db_name, db_user, db_pass)
+    replace_openadmin_config(project_name)
     check_laravel_directory()
     run_commands()
 
