@@ -69,7 +69,7 @@ def run_commands():
             'docker-compose exec app php artisan admin:install',
             'docker-compose exec app php artisan key:generate',
             'docker-compose exec app composer require open-admin-ext/helpers',
-            'docker-compose exec php artisan admin:import helpers',
+            'docker-compose exec app php artisan admin:import helpers',
             'copy .\\installer\\welcome.blade.php .\\laravel\\resources\\views\\'
         ]
     else:
@@ -85,7 +85,7 @@ def run_commands():
             'docker-compose exec app php artisan admin:install',
             'docker-compose exec app php artisan key:generate',
             'docker-compose exec app composer require open-admin-ext/helpers',
-            'docker-compose exec php artisan admin:import helpers',
+            'docker-compose exec app php artisan admin:import helpers',
             'cp ./installer/welcome.blade.php ./laravel/resources/views/'
         ]
         
@@ -106,8 +106,8 @@ def run_commands():
 def main():
     check_docker_installed()
     check_files_exist()
-    db_name = get_input("database name", "boxera")
-    db_user = get_input("database user name", "boxera")
+    db_name = get_input("database name", "uiforge")
+    db_user = get_input("database user name", "uiforge")
     db_pass = get_input("database user password", "", required=True, length_limit=None)
     replace_macros_in_env_file(db_name, db_user, db_pass)
     check_laravel_directory()
