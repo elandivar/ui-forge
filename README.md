@@ -32,9 +32,9 @@ For more detailed information, consider exploring the following resources:
 
 ## To-do
 
-In install.py, check if the docker cointainers are already running.
-In install.py, change the project name inside the OpenAdmin GUI.
-Create a service administrator, in order to stop and restart UI-Forge containers.
+1. In install.py, check if the docker cointainers are already running.
+2. In install.py, change the project name inside the OpenAdmin GUI.
+3. Create a service administrator, in order to stop and restart UI-Forge containers.
 
 ## Contributions
 
