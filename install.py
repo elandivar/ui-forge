@@ -29,7 +29,7 @@ def get_input(param_name, default_value, required=False, length_limit=16):
         except ValueError as e:
             print(str(e))
 
-def replace_macros_in_file(db_name, db_user, db_pass):
+def replace_macros_in_env_file(db_name, db_user, db_pass):
     if os.path.isfile("./.env"):
         overwrite = input("File .env already exists. Do you want to overwrite it? (yes/no): ")
         if overwrite.lower() != "yes":
@@ -69,7 +69,8 @@ def run_commands():
             'docker-compose exec app php artisan admin:install',
             'docker-compose exec app php artisan key:generate',
             'docker-compose exec app composer require open-admin-ext/helpers',
-            'docker-compose exec php artisan admin:import helpers'
+            'docker-compose exec php artisan admin:import helpers',
+            'copy .\\installer\\welcome.blade.php .\\laravel\\resources\\views\\'
         ]
     else:
         commands = [
@@ -84,7 +85,8 @@ def run_commands():
             'docker-compose exec app php artisan admin:install',
             'docker-compose exec app php artisan key:generate',
             'docker-compose exec app composer require open-admin-ext/helpers',
-            'docker-compose exec php artisan admin:import helpers'
+            'docker-compose exec php artisan admin:import helpers',
+            'cp ./installer/welcome.blade.php ./laravel/resources/views/'
         ]
         
     for command in commands:
@@ -107,7 +109,7 @@ def main():
     db_name = get_input("database name", "boxera")
     db_user = get_input("database user name", "boxera")
     db_pass = get_input("database user password", "", required=True, length_limit=None)
-    replace_macros_in_file(db_name, db_user, db_pass)
+    replace_macros_in_env_file(db_name, db_user, db_pass)
     check_laravel_directory()
     run_commands()
 
