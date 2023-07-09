@@ -67,7 +67,9 @@ def run_commands():
             'docker-compose exec app composer require open-admin-org/open-admin',
             'docker-compose exec app php artisan vendor:publish --provider="OpenAdmin\\Admin\\AdminServiceProvider"',
             'docker-compose exec app php artisan admin:install',
-            'docker-compose exec app php artisan key:generate'
+            'docker-compose exec app php artisan key:generate',
+            'docker-compose exec app composer require open-admin-ext/helpers',
+            'docker-compose exec php artisan admin:import helpers'
         ]
     else:
         commands = [
@@ -80,7 +82,9 @@ def run_commands():
             'docker-compose exec app composer require open-admin-org/open-admin',
             'docker-compose exec app php artisan vendor:publish --provider="OpenAdmin\\Admin\\AdminServiceProvider"',
             'docker-compose exec app php artisan admin:install',
-            'docker-compose exec app php artisan key:generate'
+            'docker-compose exec app php artisan key:generate',
+            'docker-compose exec app composer require open-admin-ext/helpers',
+            'docker-compose exec php artisan admin:import helpers'
         ]
         
     for command in commands:
