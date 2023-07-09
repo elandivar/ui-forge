@@ -24,15 +24,17 @@ To use UI-Forge, follow the steps below:
 
 Follow the instructions provided by the script to set up your Laravel-based admin interface.
 
-## Documentation
+## Additional Documentation
 
-For more detailed information, consider exploring the following resources:
+Since UI-Forge installs Laravel and OpenAdmin, it is higly recommended to review the OpenAdmin official documentation:
 
-- [Docker Compose Documentation](https://docs.docker.com/compose/)
+- [Open Admin Documentation](https://open-admin.org/docs)
 
 ## Usage
 
 Just navigate to http://localhost:8000 or http://localhost:8000/admin
+
+The easiest way to start expanding the default OpenAdmin functionality is to use the Helpers->Scaffold menu on the Admin interace.
 
 ## To-do
 
