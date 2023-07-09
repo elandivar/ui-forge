@@ -131,6 +131,7 @@ def main():
     run_commands()
     replace_openadmin_config(project_name)
     replace_welcome_page(project_name)
+    print("Thanks for installing UI-Forge!. Visit http://localhost:8000 to start using it.")
 
 if __name__ == "__main__":
     main()
