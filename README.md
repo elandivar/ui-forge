@@ -39,7 +39,6 @@ Just navigate to http://localhost:8000 or http://localhost:8000/admin
 1. In install.py, check if the docker cointainers are already running.
 2. In install.py, change the project name inside the OpenAdmin GUI.
 3. Create a service administrator, in order to stop and restart UI-Forge containers.
-4. Change the default Laravel page at root directory
 
 ## Contributions
 
