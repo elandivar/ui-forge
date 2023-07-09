@@ -18,8 +18,8 @@ Before running UI-Forge, ensure that your system meets the following requirement
 
 To use UI-Forge, follow the steps below:
 
-1. Clone the repository to your local machine or download the `install.py` script.
-2. Navigate to the directory containing the `install.py` file in your terminal.
+1. Clone this repository to your local machine.
+2. Navigate to the 'ui-forge' directory, containing the install.py file.
 3. Run the command: `python install.py`
 
 Follow the instructions provided by the script to set up your Laravel-based admin interface.
@@ -30,11 +30,16 @@ For more detailed information, consider exploring the following resources:
 
 - [Docker Compose Documentation](https://docs.docker.com/compose/)
 
+## Usage
+
+Just navigate to http://localhost:8000 or http://localhost:8000/admin
+
 ## To-do
 
 1. In install.py, check if the docker cointainers are already running.
 2. In install.py, change the project name inside the OpenAdmin GUI.
 3. Create a service administrator, in order to stop and restart UI-Forge containers.
+4. Change the default Laravel page at root directory
 
 ## Contributions
 
