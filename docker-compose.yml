@@ -7,18 +7,18 @@ services:
         uid: 1000
       context: ./
       dockerfile: Dockerfile
-    image: boxera-laravel
-    container_name: boxera-app
+    image: uiforge-laravel
+    container_name: uiforge-app
     restart: unless-stopped
     working_dir: /var/www/
     volumes:
       - ./laravel/:/var/www
     networks:
-      - boxera
+      - uiforge
 
   db:
     image: mysql:8.0
-    container_name: boxera-db
+    container_name: uiforge-db
     restart: unless-stopped
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
@@ -30,11 +30,11 @@ services:
     volumes:
       - ./docker-compose/mysql:/docker-entrypoint-initdb.d
     networks:
-      - boxera
+      - uiforge
 
   nginx:
     image: nginx:alpine
-    container_name: boxera-nginx
+    container_name: uiforge-nginx
     restart: unless-stopped
     ports:
       - 8000:80
@@ -42,8 +42,8 @@ services:
       - ./laravel/:/var/www
       - ./docker-compose/nginx:/etc/nginx/conf.d/
     networks:
-      - boxera
+      - uiforge
 
 networks:
-  boxera:
+  uiforge:
     driver: bridge
