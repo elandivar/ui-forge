@@ -36,6 +36,8 @@ Just navigate to http://localhost:8000 or http://localhost:8000/admin
 
 The easiest way to start expanding the default OpenAdmin functionality is to use the Helpers->Scaffold menu on the Admin interace.
 
+The default username/password is admin/admin. Change it immediately after installation!
+
 ## To-do
 
 1. In install.py, check if the docker cointainers are already running.
