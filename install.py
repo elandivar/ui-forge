@@ -120,9 +120,9 @@ def main():
     db_user = get_input("database user name", "uiforge")
     db_pass = get_input("database user password", "", required=True, length_limit=None)
     replace_macros_in_env_file(db_name, db_user, db_pass)
-    replace_openadmin_config(project_name)
     check_laravel_directory()
     run_commands()
+    replace_openadmin_config(project_name)
 
 if __name__ == "__main__":
     main()
