@@ -48,7 +48,7 @@ def replace_macros_in_env_file(db_name, db_user, db_pass):
 # changes the values of the expression with the sintax "'variable' => 'value'"
 def replace_openadmin_config(project_name):
     print("Updating OpenAdmin config files")
-    with open("./laravel/config/admin.php", "w") as file:
+    with open("./laravel/config/admin.php", "r+") as file:
         file_data = file.read()
         file_data = file_data.replace("'name' => 'Open Admin',", "'name' => '" + project_name+ "',")
         file.write(file_data)
