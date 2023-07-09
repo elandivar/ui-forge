@@ -19,7 +19,7 @@
     
     h1 {
       font-size: 60px;
-      color: #3c7ba5;
+      color: #4c4b4c;
       font-family: Helvetica, Arial, sans-serif;
     }
     

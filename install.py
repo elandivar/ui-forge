@@ -54,6 +54,14 @@ def replace_openadmin_config(project_name):
     with open("./laravel/config/admin.php", "w") as file:
         file.write(file_data)
 
+def replace_welcome_page(project_name):
+    print("Updating Welcome page")
+    with open("./installer/welcome.blade.php", "r") as file:
+        file_data = file.read()
+    file_data = file_data.replace("{PROJECT_NAME}", project_name)
+    with open("./laravel/resources/views/welcome.blade.php", "w") as file:
+        file.write(file_data)
+
 def check_laravel_directory():
     if os.path.isdir("./laravel"):
         print("Warning: Deleting the 'laravel' directory could result in data loss. Please make sure you have a backup before proceeding.")
@@ -79,8 +87,7 @@ def run_commands():
             'docker-compose exec app php artisan admin:install',
             'docker-compose exec app php artisan key:generate',
             'docker-compose exec app composer require open-admin-ext/helpers',
-            'docker-compose exec app php artisan admin:import helpers',
-            'copy .\\installer\\welcome.blade.php .\\laravel\\resources\\views\\'
+            'docker-compose exec app php artisan admin:import helpers'
         ]
     else:
         commands = [
@@ -95,8 +102,7 @@ def run_commands():
             'docker-compose exec app php artisan admin:install',
             'docker-compose exec app php artisan key:generate',
             'docker-compose exec app composer require open-admin-ext/helpers',
-            'docker-compose exec app php artisan admin:import helpers',
-            'cp ./installer/welcome.blade.php ./laravel/resources/views/'
+            'docker-compose exec app php artisan admin:import helpers'
         ]
         
     for command in commands:
@@ -124,6 +130,7 @@ def main():
     check_laravel_directory()
     run_commands()
     replace_openadmin_config(project_name)
+    replace_welcome_page(project_name)
 
 if __name__ == "__main__":
     main()
