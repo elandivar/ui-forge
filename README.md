@@ -26,7 +26,7 @@ Follow the instructions provided by the script to set up your Laravel-based admi
 
 Check a video demonstration about how to create a Laravel admin interface in less than 3 minutes.
 
-(https://youtu.be/Pw6qxI8N3jc "Creating a Web based admin portal in less than 3 minutes!")
+[<img src="https://i.ytimg.com/vi/Hc79sDi3f0U/maxresdefault.jpg" width="50%">](https://youtu.be/Pw6qxI8N3jc "Creating a Web based admin portal in less than 3 minutes!")
 
 
 ## Additional Documentation
