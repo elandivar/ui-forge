@@ -24,6 +24,11 @@ To use UI-Forge, follow the steps below:
 
 Follow the instructions provided by the script to set up your Laravel-based admin interface.
 
+Check a video demonstration about how to create a Laravel admin interface in less than 3 minutes.
+
+(https://youtu.be/Pw6qxI8N3jc "Creating a Web based admin portal in less than 3 minutes!")
+
+
 ## Additional Documentation
 
 Since UI-Forge installs Laravel and OpenAdmin, it is higly recommended to review the OpenAdmin official documentation:
