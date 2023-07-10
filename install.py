@@ -51,6 +51,7 @@ def replace_openadmin_config(project_name):
     with open("./laravel/config/admin.php", "r") as file:
         file_data = file.read()
     file_data = file_data.replace("'name' => 'Open Admin',", "'name' => '" + project_name+ "',")
+    file_data = file_data.replace("'logo' => '<b>Open</b> Admin',", "'logo' => '" + project_name+ "',")
     with open("./laravel/config/admin.php", "w") as file:
         file.write(file_data)
 
